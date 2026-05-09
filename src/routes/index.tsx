@@ -1,13 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-home.jpg";
+import shellaImg from "@/assets/shella-portrait.webp";
+import tonyImg from "@/assets/tony-portrait.webp";
 import {
   FEATURED_LISTINGS,
   SOLD_LISTINGS,
   TESTIMONIALS,
   COMMUNITIES,
   SERVICES,
-  SHELLA_HEADSHOT,
-  TONY_HEADSHOT_PLACEHOLDER,
   SITE,
 } from "@/data/site";
 import { ListingsGrid } from "@/components/site/ListingCard";
@@ -15,7 +15,8 @@ import { SectionHeading } from "@/components/site/SectionHeading";
 import { TestimonialsCarousel } from "@/components/site/TestimonialsCarousel";
 import { CommunityCard } from "@/components/site/CommunityCard";
 import { RemaxLogo } from "@/components/site/RemaxLogo";
-import { Star, ShieldCheck, Globe2, Sparkles, MapPin, Phone, Mail, ArrowRight } from "lucide-react";
+import { TeamPhones } from "@/components/site/TeamPhones";
+import { Star, ShieldCheck, Globe2, Sparkles, MapPin, Mail, ArrowRight } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   head: () => ({
