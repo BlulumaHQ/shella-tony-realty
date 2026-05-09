@@ -70,7 +70,7 @@ function Awards() {
           <img
             src={awardsStrip}
             alt="RE/MAX Platinum Club Award • RE/MAX Lifetime Achievement • Medallion Club Member • RE/MAX Hall of Fame • RE/MAX Chairman's Club"
-            className="w-full max-w-5xl h-auto object-contain opacity-90"
+            className="w-full max-w-2xl h-auto object-contain"
             loading="lazy"
           />
         </div>
