@@ -1,6 +1,7 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { findListing, SITE } from "@/data/site";
-import { Bed, Bath, Maximize2, MapPin, Phone, ArrowLeft, Check } from "lucide-react";
+import { TeamPhones } from "@/components/site/TeamPhones";
+import { Bed, Bath, Maximize2, MapPin, ArrowLeft, Check } from "lucide-react";
 
 export const Route = createFileRoute("/listings/$slug")({
   loader: ({ params }) => {
@@ -115,12 +116,9 @@ function ListingDetail() {
               >
                 {isSold ? "Contact the team" : "Book a Private Showing"}
               </Link>
-              <a
-                href={`tel:${SITE.phone}`}
-                className="mt-3 w-full inline-flex items-center justify-center gap-2 rounded-full border border-border bg-background px-6 py-3 text-sm font-medium hover:bg-secondary"
-              >
-                <Phone className="h-4 w-4" /> {SITE.phone}
-              </a>
+              <div className="mt-4">
+                <TeamPhones variant="cards" />
+              </div>
               <p className="mt-5 pt-5 border-t border-border/60 text-xs text-muted-foreground">
                 Shella &amp; Tony Chan • {SITE.brokerage}
                 <br />
