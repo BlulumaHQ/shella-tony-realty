@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { SITE } from "@/data/site";
+import { RemaxLogo } from "./RemaxLogo";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -17,13 +18,19 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 backdrop-blur bg-background/85 border-b border-border/60">
-      <div className="container-app flex items-center justify-between h-18 py-4">
-        <Link to="/" className="flex flex-col leading-tight">
-          <span className="font-serif text-lg md:text-xl text-primary">Shella &amp; Tony Chan</span>
-          <span className="text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Real Estate Team</span>
+      <div className="container-app flex items-center justify-between gap-4 py-3.5">
+        <Link to="/" className="flex items-center gap-3 leading-tight">
+          <div className="flex flex-col">
+            <span className="font-serif text-lg md:text-xl text-primary">Shella &amp; Tony Chan</span>
+            <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Real Estate Team</span>
+          </div>
+          <span className="hidden sm:flex h-9 w-px bg-border mx-1" />
+          <span className="hidden sm:flex">
+            <RemaxLogo showText={false} />
+          </span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-7">
           {NAV.map((n) => (
             <Link
               key={n.to}

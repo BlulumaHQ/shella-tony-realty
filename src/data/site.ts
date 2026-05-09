@@ -2,8 +2,8 @@ export const SITE = {
   name: "Shella & Tony Chan Real Estate Team",
   short: "Chan Real Estate Team",
   brokerage: "RE/MAX Crest Realty",
-  phone: "604-649-8888",
-  phoneAlt: "604-433-2211",
+  phone: "604-433-2211",
+  phoneAlt: "604-649-8888",
   tollFree: "1-866-433-2211",
   address: "#1 - 5050 Kingsway, Burnaby, BC V5H 4C2",
   email: "info@chanrealestate.com",
@@ -12,57 +12,124 @@ export const SITE = {
   rating: { score: 4.92, count: 23 },
 };
 
+// Official RE/MAX brand mark (publicly hosted on Wikimedia Commons)
+export const REMAX_LOGO =
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/REMAX_logo.svg/512px-REMAX_logo.svg.png";
+
 export type Listing = {
   id: string;
+  slug: string;
+  status: "active" | "sold";
+  price: string;
   address: string;
   city: string;
-  neighbourhood?: string;
-  price: string;
+  area?: string;
   beds: number;
   baths: number;
   sqft: number;
-  lot?: string;
-  type: string;
-  image: string;
-  status: "active" | "sold";
+  propertyType: string;
+  mlsNumber?: string;
+  description: string;
+  highlights: string[];
+  images: string[];
+  listingUrl?: string;
 };
 
-// Real listings extracted from rew.ca / chanrealestate.com sources
-export const LISTINGS: Listing[] = [
+// Real listings sourced from rew.ca / chanrealestate.com / realtylink.org
+export const FEATURED_LISTINGS: Listing[] = [
   {
     id: "8022-lakefield",
+    slug: "8022-lakefield-drive",
+    status: "active",
+    price: "$2,080,000",
     address: "8022 Lakefield Drive",
     city: "Burnaby",
-    neighbourhood: "Burnaby Lake",
-    price: "$2,080,000",
+    area: "Burnaby Lake",
     beds: 6,
     baths: 5,
     sqft: 4786,
-    lot: "60 x 126 ft",
-    type: "House",
-    image:
-      "https://assets-listings.rew.ca/listing/brc_idx_rew/263127340/00_5cd727675c145f8735203eef00f471d9.jpeg?auto=format&fit=crop&w=900&h=675",
-    status: "active",
+    propertyType: "House",
+    description:
+      "A spacious 6-bedroom, 5-bathroom family home in the desirable Burnaby Lake area. Generous living areas and a flexible floor plan make this property ideal for multi-generational families.",
+    highlights: [
+      "4,786 sq ft of family living space",
+      "Quiet Burnaby Lake neighbourhood",
+      "Close to schools, parks and transit",
+      "Multi-generational layout",
+    ],
+    images: [
+      "https://assets-listings.rew.ca/listing/brc_idx_rew/263127340/00_5cd727675c145f8735203eef00f471d9.jpeg?auto=format&fit=crop&w=1400&h=900",
+    ],
+    listingUrl: "https://www.rew.ca/agents/111169/shella-chan/listings",
   },
   {
     id: "305-7260-lindsay",
+    slug: "305-7260-lindsay-road",
+    status: "active",
+    price: "$308,000",
     address: "305 - 7260 Lindsay Road",
     city: "Richmond",
-    neighbourhood: "Granville",
-    price: "$308,000",
+    area: "Granville",
     beds: 3,
     baths: 1,
     sqft: 1068,
-    type: "Apt/Condo",
-    image:
-      "https://assets-listings.rew.ca/listing/brc_idx_rew/263114479/00_6e07153a1b4a6f4498eab6df1c541aae.jpeg?auto=format&fit=crop&w=900&h=675",
+    propertyType: "Apartment / Condo",
+    description:
+      "A bright 3-bedroom condo in Richmond's Granville neighbourhood. A practical layout, central location and easy access to shopping, schools and transit.",
+    highlights: [
+      "Central Richmond location",
+      "1,068 sq ft of comfortable living",
+      "Walking distance to amenities",
+      "Excellent first-home or rental opportunity",
+    ],
+    images: [
+      "https://assets-listings.rew.ca/listing/brc_idx_rew/263114479/00_6e07153a1b4a6f4498eab6df1c541aae.jpeg?auto=format&fit=crop&w=1400&h=900",
+    ],
+    listingUrl: "https://www.rew.ca/agents/111169/shella-chan/listings",
+  },
+  {
+    id: "407-6837-station-hill",
+    slug: "407-6837-station-hill-drive",
     status: "active",
+    price: "$649,000",
+    address: "407 - 6837 Station Hill Drive",
+    city: "Burnaby",
+    area: "South Slope",
+    beds: 2,
+    baths: 2,
+    sqft: 841,
+    propertyType: "Apartment / Condo",
+    description:
+      "A well-appointed 2-bedroom, 2-bathroom condo in Burnaby's South Slope. Steps from Edmonds SkyTrain, shopping and parks — a strong choice for first-time buyers, downsizers or investors.",
+    highlights: [
+      "Walking distance to Edmonds SkyTrain",
+      "841 sq ft well-planned layout",
+      "Two full bathrooms",
+      "Family-friendly South Slope community",
+    ],
+    images: [
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1400&q=80",
+    ],
+    listingUrl: "https://www.realtylink.org/",
   },
 ];
 
-export const SOLD: Listing[] = [];
+// No verified sold listings have been confirmed from public sources at this time.
+// When real sold transaction data is available, populate this array.
+export const SOLD_LISTINGS: Listing[] = [];
 
-export const TESTIMONIALS = [
+// Backwards-compat exports used in earlier components
+export const LISTINGS = FEATURED_LISTINGS;
+export const SOLD = SOLD_LISTINGS;
+
+export type Testimonial = {
+  name: string;
+  location: string;
+  type: string;
+  quote: string;
+};
+
+export const TESTIMONIALS: Testimonial[] = [
   {
     name: "Jianhui (Jenny) Wang",
     location: "Burnaby, BC",
@@ -121,13 +188,15 @@ export const TESTIMONIALS = [
   },
 ];
 
+// Communities — using typography/icon cards. No images to avoid inaccurate or
+// AI-generated city photos. Real city photography can be added later.
 export const COMMUNITIES = [
-  { name: "Burnaby", desc: "Family neighbourhoods, top schools and lakeside parks.", img: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=900&q=80&auto=format&fit=crop" },
-  { name: "Richmond", desc: "Vibrant multicultural community with riverfront living.", img: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=900&q=80&auto=format&fit=crop" },
-  { name: "Vancouver", desc: "Iconic urban living surrounded by ocean and mountains.", img: "https://images.unsplash.com/photo-1559511260-66a654ae982a?w=900&q=80&auto=format&fit=crop" },
-  { name: "Coquitlam", desc: "Growing family suburbs with parks, transit and trails.", img: "https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=900&q=80&auto=format&fit=crop" },
-  { name: "New Westminster", desc: "Historic riverside community with character and warmth.", img: "https://images.unsplash.com/photo-1494522855154-9297ac14b55f?w=900&q=80&auto=format&fit=crop" },
-  { name: "Tri-Cities & Beyond", desc: "Trusted guidance across the Greater Vancouver area.", img: "https://images.unsplash.com/photo-1449844908441-8829872d2607?w=900&q=80&auto=format&fit=crop" },
+  { name: "Burnaby", desc: "Family neighbourhoods, top schools and lakeside parks." },
+  { name: "Richmond", desc: "Vibrant multicultural community with riverfront living." },
+  { name: "Vancouver", desc: "Iconic urban living surrounded by ocean and mountains." },
+  { name: "Coquitlam", desc: "Growing family suburbs with parks, transit and trails." },
+  { name: "New Westminster", desc: "Historic riverside community with character and warmth." },
+  { name: "Tri-Cities & Beyond", desc: "Trusted guidance across the Greater Vancouver area." },
 ];
 
 export const SERVICES = [
@@ -141,3 +210,13 @@ export const SERVICES = [
 
 export const SHELLA_HEADSHOT =
   "https://assets.rew.ca/property-agent/image/111169/2549_Shella_Chan.jpg?auto=format&fit=crop&w=600&h=600";
+
+// TEMPORARY — placeholder initials avatar for Tony. Replace with real headshot
+// from the Chan team when available. This is intentionally NOT a generated face.
+export const TONY_HEADSHOT_PLACEHOLDER =
+  "https://ui-avatars.com/api/?name=Tony+Chan&size=600&background=003DA5&color=ffffff&bold=true&font-size=0.38";
+export const TONY_HEADSHOT_IS_PLACEHOLDER = true;
+
+export function findListing(slug: string): Listing | undefined {
+  return [...FEATURED_LISTINGS, ...SOLD_LISTINGS].find((l) => l.slug === slug);
+}

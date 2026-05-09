@@ -31,9 +31,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-cream: var(--cream);
-  --color-sand: var(--sand);
-  --color-clay: var(--clay);
+  --color-brand-red: var(--brand-red);
+  --color-brand-blue: var(--brand-blue);
 
   --font-serif: "Fraunces", "Cormorant Garamond", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;
@@ -42,41 +41,41 @@
 :root {
   --radius: 0.75rem;
 
-  /* Warm, family-oriented advisory palette */
-  --background: oklch(0.985 0.008 80);          /* warm white */
-  --foreground: oklch(0.22 0.025 250);          /* muted charcoal */
+  /* RE/MAX-inspired professional blue palette */
+  --background: oklch(0.99 0.003 240);              /* clean white */
+  --foreground: oklch(0.22 0.04 255);               /* muted navy text */
 
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.22 0.025 250);
+  --card-foreground: oklch(0.22 0.04 255);
 
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.22 0.025 250);
+  --popover-foreground: oklch(0.22 0.04 255);
 
-  --primary: oklch(0.32 0.045 250);             /* deep navy */
-  --primary-foreground: oklch(0.985 0.008 80);
+  --primary: oklch(0.36 0.13 258);                  /* deep RE/MAX blue */
+  --primary-foreground: oklch(0.99 0.003 240);
 
-  --secondary: oklch(0.94 0.018 75);            /* soft beige */
-  --secondary-foreground: oklch(0.28 0.04 250);
+  --secondary: oklch(0.96 0.01 240);                /* soft light gray-blue */
+  --secondary-foreground: oklch(0.28 0.08 258);
 
-  --muted: oklch(0.95 0.012 75);
-  --muted-foreground: oklch(0.48 0.018 250);
+  --muted: oklch(0.965 0.008 240);
+  --muted-foreground: oklch(0.5 0.025 255);
 
-  --accent: oklch(0.62 0.085 50);               /* warm clay accent */
-  --accent-foreground: oklch(0.985 0.008 80);
+  --accent: oklch(0.45 0.16 258);                   /* mid blue accent */
+  --accent-foreground: oklch(0.99 0.003 240);
 
-  --destructive: oklch(0.55 0.18 27);
-  --destructive-foreground: oklch(0.985 0.008 80);
+  /* Small red used very sparingly for brand nods */
+  --brand-red: oklch(0.58 0.21 27);
+  --brand-blue: oklch(0.36 0.13 258);
 
-  --border: oklch(0.9 0.015 75);
-  --input: oklch(0.9 0.015 75);
-  --ring: oklch(0.62 0.085 50);
+  --destructive: oklch(0.55 0.21 27);
+  --destructive-foreground: oklch(0.99 0.003 240);
 
-  --cream: oklch(0.97 0.015 80);
-  --sand: oklch(0.9 0.025 75);
-  --clay: oklch(0.62 0.085 50);
+  --border: oklch(0.92 0.012 240);
+  --input: oklch(0.92 0.012 240);
+  --ring: oklch(0.45 0.16 258);
 
-  --shadow-soft: 0 1px 2px oklch(0.22 0.025 250 / 0.04), 0 8px 24px oklch(0.22 0.025 250 / 0.06);
-  --shadow-card: 0 2px 4px oklch(0.22 0.025 250 / 0.04), 0 16px 40px oklch(0.22 0.025 250 / 0.08);
+  --shadow-soft: 0 1px 2px oklch(0.22 0.04 255 / 0.05), 0 8px 24px oklch(0.22 0.04 255 / 0.07);
+  --shadow-card: 0 2px 4px oklch(0.22 0.04 255 / 0.05), 0 16px 40px oklch(0.22 0.04 255 / 0.10);
 }
 
 @layer base {

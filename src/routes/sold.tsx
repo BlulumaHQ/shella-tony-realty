@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { SOLD } from "@/data/site";
+import { SOLD_LISTINGS } from "@/data/site";
 import { ListingsGrid } from "@/components/site/ListingCard";
 import { SectionHeading } from "@/components/site/SectionHeading";
 
@@ -23,8 +23,8 @@ function SoldPage() {
           description="Two decades of helping families across Greater Vancouver find buyers and move forward with confidence."
         />
         <div className="mt-14">
-          {SOLD.length > 0 ? (
-            <ListingsGrid listings={SOLD} />
+          {SOLD_LISTINGS.length > 0 ? (
+            <ListingsGrid listings={SOLD_LISTINGS} />
           ) : (
             <div className="text-center max-w-lg mx-auto bg-card border border-border/60 rounded-2xl p-10">
               <p className="text-muted-foreground leading-relaxed">

@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { LISTINGS } from "@/data/site";
+import { FEATURED_LISTINGS } from "@/data/site";
 import { ListingsGrid } from "@/components/site/ListingCard";
 import { SectionHeading } from "@/components/site/SectionHeading";
 
@@ -23,8 +23,8 @@ function ListingsPage() {
           description="A curated selection of properties personally represented by the Chan team. Every listing is hand-chosen and supported with full-service care."
         />
         <div className="mt-14">
-          {LISTINGS.length > 0 ? (
-            <ListingsGrid listings={LISTINGS} />
+          {FEATURED_LISTINGS.length > 0 ? (
+            <ListingsGrid listings={FEATURED_LISTINGS} />
           ) : (
             <p className="text-center text-muted-foreground">No active listings at the moment — please check back soon.</p>
           )}
