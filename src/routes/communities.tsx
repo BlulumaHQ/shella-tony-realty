@@ -23,7 +23,7 @@ function CommunitiesPage() {
           description="From the lakeside streets of Burnaby to the riverfront of Richmond, we’ve helped families settle into homes across the Lower Mainland."
         />
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {COMMUNITIES.map((c) => <CommunityCard key={c.name} {...c} />)}
+          {COMMUNITIES.map((c) => <CommunityCard key={c.name.en} {...c} />)}
         </div>
       </div>
     </section>
