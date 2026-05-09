@@ -27,14 +27,14 @@ function AboutPage() {
           <div className="grid grid-cols-2 gap-5 max-w-md mx-auto lg:mx-0">
             <div>
               <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-muted shadow-card">
-                <img src={SHELLA_HEADSHOT} alt="Shella Chan, REALTOR®" className="h-full w-full object-cover" />
+                <img src={shellaImg} alt="Shella Chan, REALTOR®" className="h-full w-full object-cover" />
               </div>
               <p className="mt-3 font-serif text-lg text-primary">Shella Chan</p>
               <p className="text-xs text-muted-foreground">REALTOR®</p>
             </div>
             <div>
               <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-muted shadow-card">
-                <img src={TONY_HEADSHOT_PLACEHOLDER} alt="Tony Chan, REALTOR®" className="h-full w-full object-cover" />
+                <img src={tonyImg} alt="Tony Chan, REALTOR®" className="h-full w-full object-cover" />
               </div>
               <p className="mt-3 font-serif text-lg text-primary">Tony Chan</p>
               <p className="text-xs text-muted-foreground">REALTOR® • photo coming soon</p>
@@ -75,7 +75,7 @@ function AboutPage() {
       <section className="py-16 md:py-20 bg-secondary/50 border-y border-border/60">
         <div className="container-app grid gap-10 md:grid-cols-[260px_1fr] items-start">
           <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-muted shadow-card max-w-[260px]">
-            <img src={SHELLA_HEADSHOT} alt="Shella Chan" className="h-full w-full object-cover" />
+            <img src={shellaImg} alt="Shella Chan" className="h-full w-full object-cover" />
           </div>
           <div>
             <p className="text-xs uppercase tracking-[0.22em] text-accent font-medium">About Shella Chan</p>
@@ -96,7 +96,7 @@ function AboutPage() {
       <section className="py-16 md:py-20">
         <div className="container-app grid gap-10 md:grid-cols-[260px_1fr] items-start">
           <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-muted shadow-card max-w-[260px]">
-            <img src={TONY_HEADSHOT_PLACEHOLDER} alt="Tony Chan" className="h-full w-full object-cover" />
+            <img src={tonyImg} alt="Tony Chan" className="h-full w-full object-cover" />
           </div>
           <div>
             <p className="text-xs uppercase tracking-[0.22em] text-accent font-medium">About Tony Chan</p>
