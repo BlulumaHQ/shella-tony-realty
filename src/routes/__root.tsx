@@ -51,7 +51,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Trusted family real estate guidance across the Greater Vancouver area. Multilingual service in English, Cantonese and Mandarin. RE/MAX Crest Realty.",
       },
       { name: "author", content: "Shella & Tony Chan Real Estate Team" },
-      { property: "og:title", content: "Shella & Tony Chan Real Estate Team" },
+      { property: "og:title", content: "Shella & Tony Chan Real Estate Team — Greater Vancouver" },
       {
         property: "og:description",
         content:
@@ -59,6 +59,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Shella & Tony Chan Real Estate Team — Greater Vancouver" },
+      { name: "description", content: "A modern, family-oriented real estate advisory website for Shella & Tony Chan." },
+      { property: "og:description", content: "A modern, family-oriented real estate advisory website for Shella & Tony Chan." },
+      { name: "twitter:description", content: "A modern, family-oriented real estate advisory website for Shella & Tony Chan." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/66c9c47a-c607-479e-bf72-84816c7c602b/id-preview-46a35f55--9cbbda56-58f5-4632-b145-9182a702d999.lovable.app-1778285754852.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/66c9c47a-c607-479e-bf72-84816c7c602b/id-preview-46a35f55--9cbbda56-58f5-4632-b145-9182a702d999.lovable.app-1778285754852.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
