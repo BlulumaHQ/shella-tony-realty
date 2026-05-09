@@ -58,8 +58,9 @@ export function Header() {
           >
             {bookLabel}
           </Link>
-          <LanguageSwitcher />
         </div>
+
+        <LanguageSwitcher className="hidden min-[1420px]:inline-flex absolute right-8 top-1/2 -translate-y-1/2" />
 
         <div className="flex items-center gap-2 lg:hidden">
           <LanguageSwitcher />
