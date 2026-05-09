@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImg from "@/assets/hero-home.jpg";
 import shellaImg from "@/assets/shella-portrait.webp";
 import tonyImg from "@/assets/tony-portrait.webp";
-import awardsStrip from "@/assets/awards-strip.png";
+import awardsStrip from "@/assets/awards-strip.jpg";
 import {
   FEATURED_LISTINGS,
   SOLD_LISTINGS,
@@ -62,7 +62,7 @@ function Awards() {
           <img
             src={awardsStrip}
             alt="RE/MAX Platinum Club Award • RE/MAX Lifetime Achievement • Medallion Club Member • RE/MAX Hall of Fame • RE/MAX Chairman's Club"
-            className="w-full max-w-xl h-auto object-contain"
+            className="w-full max-w-lg h-auto object-contain"
             loading="lazy"
           />
         </div>
