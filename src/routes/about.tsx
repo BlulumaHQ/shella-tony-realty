@@ -37,7 +37,7 @@ function AboutPage() {
                 <img src={tonyImg} alt="Tony Chan, REALTOR®" className="h-full w-full object-cover" />
               </div>
               <p className="mt-3 font-serif text-lg text-primary">Tony Chan</p>
-              <p className="text-xs text-muted-foreground">REALTOR® • photo coming soon</p>
+              <p className="text-xs text-muted-foreground">REALTOR®</p>
             </div>
           </div>
           <div>
