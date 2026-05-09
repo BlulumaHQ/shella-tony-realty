@@ -2,6 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { findListing, SITE } from "@/data/site";
 import { TeamPhones } from "@/components/site/TeamPhones";
 import { Bed, Bath, Maximize2, MapPin, ArrowLeft, Check } from "lucide-react";
+import { useT } from "@/i18n/i18n";
 
 export const Route = createFileRoute("/listings/$slug")({
   loader: ({ params }) => {
@@ -38,12 +39,13 @@ export const Route = createFileRoute("/listings/$slug")({
 function ListingDetail() {
   const { listing } = Route.useLoaderData();
   const isSold = listing.status === "sold";
+  const t = useT();
 
   return (
     <article className="py-12 md:py-16">
       <div className="container-app">
         <Link to="/listings" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-accent">
-          <ArrowLeft className="h-4 w-4" /> Back to Listings
+          <ArrowLeft className="h-4 w-4" /> {t({ en: "Back to Listings", zh: "回到物件列表" })}
         </Link>
 
         <div className="mt-6 rounded-3xl overflow-hidden bg-muted aspect-[16/9] md:aspect-[21/9]">
@@ -58,7 +60,7 @@ function ListingDetail() {
               </span>
               {isSold && (
                 <span className="text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-brand-red text-white font-medium">
-                  Sold
+                  {t({ en: "Sold", zh: "已成交" })}
                 </span>
               )}
               {listing.mlsNumber && (
@@ -76,19 +78,23 @@ function ListingDetail() {
             <p className="mt-6 font-serif text-4xl text-primary">{listing.price}</p>
 
             <div className="mt-8 grid grid-cols-3 gap-4">
-              <Stat icon={Bed} label="Bedrooms" value={String(listing.beds)} />
-              <Stat icon={Bath} label="Bathrooms" value={String(listing.baths)} />
-              <Stat icon={Maximize2} label="Square feet" value={listing.sqft.toLocaleString()} />
+              <Stat icon={Bed} label={t({ en: "Bedrooms", zh: "臥房" })} value={String(listing.beds)} />
+              <Stat icon={Bath} label={t({ en: "Bathrooms", zh: "衛浴" })} value={String(listing.baths)} />
+              <Stat icon={Maximize2} label={t({ en: "Square feet", zh: "坪數 (sq ft)" })} value={listing.sqft.toLocaleString()} />
             </div>
 
             <div className="mt-10">
-              <h2 className="font-serif text-2xl text-primary">About this property</h2>
+              <h2 className="font-serif text-2xl text-primary">
+                {t({ en: "About this property", zh: "物件介紹" })}
+              </h2>
               <p className="mt-3 text-[15px] text-muted-foreground leading-relaxed">{listing.description}</p>
             </div>
 
             {listing.highlights.length > 0 && (
               <div className="mt-10">
-                <h2 className="font-serif text-2xl text-primary">Key highlights</h2>
+                <h2 className="font-serif text-2xl text-primary">
+                  {t({ en: "Key highlights", zh: "重點特色" })}
+                </h2>
                 <ul className="mt-4 grid gap-3 sm:grid-cols-2">
                   {listing.highlights.map((h: string) => (
                     <li key={h} className="flex items-start gap-2.5 text-sm text-foreground/85">
@@ -103,18 +109,22 @@ function ListingDetail() {
           <aside className="lg:sticky lg:top-24 self-start">
             <div className="bg-card border border-border/60 rounded-2xl p-7 shadow-soft">
               <p className="font-serif text-xl text-primary">
-                {isSold ? "Looking for something similar?" : "Book a private showing"}
+                {isSold
+                  ? t({ en: "Looking for something similar?", zh: "想找類似的物件嗎?" })
+                  : t({ en: "Book a private showing", zh: "預約私人賞屋" })}
               </p>
               <p className="mt-2 text-sm text-muted-foreground">
                 {isSold
-                  ? "Reach out and we’ll help you find homes like this one."
-                  : "Schedule a no-pressure tour with Shella or Tony at a time that works for you."}
+                  ? t({ en: "Reach out and we’ll help you find homes like this one.", zh: "歡迎與我們聯繫,協助您找到相似的物件。" })
+                  : t({ en: "Schedule a no-pressure tour with Shella or Tony at a time that works for you.", zh: "於您方便的時間,與 Shella 或 Tony 預約輕鬆無壓力的賞屋。" })}
               </p>
               <Link
                 to="/contact"
                 className="mt-5 w-full inline-flex items-center justify-center rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm font-medium hover:bg-primary/90"
               >
-                {isSold ? "Contact the team" : "Book a Private Showing"}
+                {isSold
+                  ? t({ en: "Contact the team", zh: "聯絡我們" })
+                  : t({ en: "Book a Private Showing", zh: "預約私人賞屋" })}
               </Link>
               <div className="mt-4">
                 <TeamPhones variant="cards" />
