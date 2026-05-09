@@ -58,19 +58,11 @@ function Awards() {
         <p className="text-center text-[11px] uppercase tracking-[0.28em] text-primary-foreground/70 font-medium">
           Awards &amp; Recognition
         </p>
-        <div
-          className="mt-5 flex justify-center"
-          style={{
-            WebkitMaskImage:
-              "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
-            maskImage:
-              "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
-          }}
-        >
+        <div className="mt-5 flex justify-center">
           <img
             src={awardsStrip}
             alt="RE/MAX Platinum Club Award • RE/MAX Lifetime Achievement • Medallion Club Member • RE/MAX Hall of Fame • RE/MAX Chairman's Club"
-            className="w-full max-w-2xl h-auto object-contain"
+            className="w-full max-w-xl h-auto object-contain"
             loading="lazy"
           />
         </div>
