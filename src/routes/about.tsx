@@ -21,6 +21,20 @@ export const Route = createFileRoute("/about")({
 function AboutPage() {
   return (
     <>
+      {/* Team banner */}
+      <section className="bg-primary">
+        <div className="container-app py-6 md:py-8">
+          <div className="rounded-2xl overflow-hidden ring-1 ring-primary-foreground/10 shadow-card">
+            <img
+              src={teamBanner}
+              alt="Shella & Tony Chan — Helping local & international families buy & sell real estate in Metro Vancouver"
+              className="w-full h-auto block"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Section 1 — About the team */}
       <section className="py-20 md:py-28">
         <div className="container-app grid gap-12 lg:gap-20 lg:grid-cols-2 items-center">
