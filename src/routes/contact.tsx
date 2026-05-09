@@ -2,7 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { SITE } from "@/data/site";
 import { SectionHeading } from "@/components/site/SectionHeading";
-import { Phone, Mail, MapPin, Globe2, Check } from "lucide-react";
+import { TeamPhones } from "@/components/site/TeamPhones";
+import { Mail, MapPin, Globe2, Check } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -70,12 +71,18 @@ function ContactPage() {
           </div>
 
           <aside className="space-y-5">
-            <InfoCard icon={Phone} title="Call or text">
-              <a href={`tel:${SITE.phone}`} className="text-foreground hover:text-accent">{SITE.phone}</a>
-              <p className="text-xs text-muted-foreground mt-1">Toll-free {SITE.tollFree} • Office {SITE.phoneAlt}</p>
-            </InfoCard>
+            <div className="bg-card rounded-2xl p-6 border border-border/60 shadow-soft">
+              <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Call or text directly</p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                Each agent answers their own line — pick the one you'd like to reach.
+              </p>
+              <div className="mt-4">
+                <TeamPhones variant="cards" />
+              </div>
+            </div>
             <InfoCard icon={Mail} title="Email">
-              <p className="text-foreground">Reach out anytime — we typically respond within a few hours.</p>
+              <p className="text-foreground">{SITE.email}</p>
+              <p className="text-xs text-muted-foreground mt-1">We typically respond within a few hours.</p>
             </InfoCard>
             <InfoCard icon={MapPin} title="Office">
               <p className="text-foreground leading-relaxed">{SITE.address}</p>
