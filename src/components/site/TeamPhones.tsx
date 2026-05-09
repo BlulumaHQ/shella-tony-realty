@@ -58,16 +58,18 @@ export function TeamPhones({
 
   if (variant === "inline") {
     return (
-      <div className={`flex flex-wrap items-center gap-x-5 gap-y-1.5 text-sm ${className}`}>
+      <div className={`flex flex-col gap-1 text-sm ${className}`}>
         {agents.map((a) => (
           <a
             key={a.tel}
             href={`tel:${a.tel}`}
-            className="inline-flex items-center gap-1.5 text-foreground/80 hover:text-accent"
+            className="grid grid-cols-[14px_56px_auto] items-center gap-2 text-foreground/85 hover:text-accent"
           >
-            <Phone className="h-3.5 w-3.5" />
-            <span className="text-muted-foreground">{a.name.split(" ")[0]}</span>
-            <span className="font-medium">{a.phone}</span>
+            <Phone className="h-3.5 w-3.5 text-accent" />
+            <span className="text-muted-foreground text-xs uppercase tracking-wider">
+              {a.name.split(" ")[0]}
+            </span>
+            <span className="font-medium tabular-nums">{a.phone}</span>
           </a>
         ))}
       </div>
