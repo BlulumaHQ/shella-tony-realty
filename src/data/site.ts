@@ -13,8 +13,9 @@ export const SITE = {
 };
 
 // Official RE/MAX brand mark (publicly hosted on Wikimedia Commons)
-export const REMAX_LOGO =
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/REMAX_logo.svg/512px-REMAX_logo.svg.png";
+// Logo is now rendered as a self-contained CSS badge in <RemaxLogo />.
+// Kept exported for backwards compatibility if referenced elsewhere.
+export const REMAX_LOGO = "";
 
 export type Listing = {
   id: string;
@@ -213,8 +214,12 @@ export const SHELLA_HEADSHOT =
 
 // TEMPORARY — placeholder initials avatar for Tony. Replace with real headshot
 // from the Chan team when available. This is intentionally NOT a generated face.
+// Inline SVG data URI — guarantees the placeholder always renders, no CDN dep.
 export const TONY_HEADSHOT_PLACEHOLDER =
-  "https://ui-avatars.com/api/?name=Tony+Chan&size=600&background=003DA5&color=ffffff&bold=true&font-size=0.38";
+  "data:image/svg+xml;utf8," +
+  encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><rect width="600" height="600" fill="#003DA5"/><text x="50%" y="54%" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="700" font-size="240" fill="#ffffff">TC</text></svg>`
+  );
 export const TONY_HEADSHOT_IS_PLACEHOLDER = true;
 
 export function findListing(slug: string): Listing | undefined {
