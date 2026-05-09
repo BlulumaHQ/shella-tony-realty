@@ -1,6 +1,9 @@
 import { MapPin } from "lucide-react";
+import type { TString } from "@/i18n/i18n";
+import { useT } from "@/i18n/i18n";
 
-export function CommunityCard({ name, desc }: { name: string; desc: string }) {
+export function CommunityCard({ name, desc }: { name: TString; desc: TString }) {
+  const t = useT();
   return (
     <article className="group relative rounded-2xl bg-card border border-border/60 p-7 shadow-soft hover:shadow-card hover:border-accent/40 transition-all overflow-hidden">
       <div
@@ -12,8 +15,8 @@ export function CommunityCard({ name, desc }: { name: string; desc: string }) {
           <MapPin className="h-5 w-5" />
         </div>
         <div>
-          <h3 className="font-serif text-2xl text-primary">{name}</h3>
-          <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
+          <h3 className="font-serif text-2xl text-primary">{t(name)}</h3>
+          <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{t(desc)}</p>
         </div>
       </div>
     </article>
