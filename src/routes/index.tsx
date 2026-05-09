@@ -55,25 +55,28 @@ function Hero() {
       <div className="absolute inset-0">
         <img
           src={heroImg}
-          alt="Welcoming family home in Greater Vancouver"
+          alt="Metro Vancouver skyline and family homes"
           width={1920}
           height={1280}
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-primary/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-primary/40" />
       </div>
-      <div className="relative container-app py-24 md:py-36 text-primary-foreground grid lg:grid-cols-[1.2fr_auto] gap-12 items-end">
+      <div className="relative container-app py-20 md:py-28 lg:py-32 text-primary-foreground grid lg:grid-cols-[1.15fr_auto] gap-12 lg:gap-16 items-center">
         <div>
-          <p className="text-xs md:text-sm uppercase tracking-[0.28em] text-primary-foreground/80 font-medium">
-            Shella &amp; Tony Chan • RE/MAX Crest Realty
-          </p>
-          <h1 className="mt-5 font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl max-w-3xl text-balance leading-[1.05]">
-            Trusted real estate guidance for families across Greater Vancouver.
+          <div className="inline-flex items-center gap-3 rounded-full bg-primary-foreground/10 backdrop-blur border border-primary-foreground/20 px-4 py-1.5">
+            <RemaxLogo variant="balloon" className="h-5" />
+            <span className="text-[11px] uppercase tracking-[0.22em] text-primary-foreground/85 font-medium">
+              RE/MAX Crest Realty • Metro Vancouver
+            </span>
+          </div>
+          <h1 className="mt-6 font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl max-w-3xl text-balance leading-[1.05]">
+            Helping local &amp; international families <span className="text-primary-foreground/80">buy &amp; sell</span> across Metro Vancouver.
           </h1>
           <p className="mt-6 max-w-xl text-base md:text-lg text-primary-foreground/85 leading-relaxed">
-            A family-led team built on trust, multilingual care and full-service support — for buyers, sellers, downsizers and relocating families.
+            A husband-and-wife RE/MAX team built on trust, multilingual care and full-service support — for buyers, sellers, downsizers and relocating families.
           </p>
-          <div className="mt-9 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap gap-3">
             <Link
               to="/contact"
               className="inline-flex items-center justify-center rounded-full bg-primary-foreground text-primary px-7 py-3.5 text-sm font-medium hover:bg-primary-foreground/90 transition-colors"
@@ -87,7 +90,10 @@ function Hero() {
               View Listings
             </Link>
           </div>
-          <div className="mt-10 inline-flex items-center gap-3 text-sm text-primary-foreground/85 border-t border-primary-foreground/20 pt-6">
+          <div className="mt-7">
+            <TeamPhones variant="hero" />
+          </div>
+          <div className="mt-7 inline-flex items-center gap-3 text-sm text-primary-foreground/80 border-t border-primary-foreground/20 pt-5">
             <Globe2 className="h-4 w-4" />
             <span className="tracking-wide">English • 廣東話 • 普通話</span>
           </div>
@@ -95,34 +101,34 @@ function Hero() {
 
         {/* Team dual-agent card */}
         <div className="hidden lg:block">
-          <div className="bg-background/95 backdrop-blur rounded-2xl p-5 shadow-card border border-border/40 w-[300px]">
-            <div className="flex -space-x-3">
-              <img
-                src={SHELLA_HEADSHOT}
-                alt="Shella Chan, REALTOR"
-                className="h-16 w-16 rounded-full object-cover ring-2 ring-background"
-              />
-              <img
-                src={TONY_HEADSHOT_PLACEHOLDER}
-                alt="Tony Chan, REALTOR"
-                className="h-16 w-16 rounded-full object-cover ring-2 ring-background"
-              />
+          <div className="bg-background/95 backdrop-blur rounded-2xl p-5 shadow-card border border-border/40 w-[320px]">
+            <div className="grid grid-cols-2 gap-3">
+              <AgentMini name="Shella" img={shellaImg} />
+              <AgentMini name="Tony" img={tonyImg} />
             </div>
-            <div className="mt-4">
-              <p className="text-sm font-medium text-primary">Shella &amp; Tony Chan</p>
-              <p className="text-xs text-muted-foreground mt-0.5">REALTORS® • Greater Vancouver</p>
-            </div>
-            <div className="mt-3 flex items-center gap-1 text-accent">
+            <div className="mt-4 flex items-center gap-1 text-accent">
               {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="h-3.5 w-3.5 fill-current" />)}
               <span className="ml-1.5 text-xs text-muted-foreground">{SITE.rating.score} • {SITE.rating.count} reviews</span>
             </div>
             <div className="mt-4 pt-4 border-t border-border/60">
-              <RemaxLogo />
+              <RemaxLogo variant="brokerage" />
             </div>
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function AgentMini({ name, img }: { name: string; img: string }) {
+  return (
+    <div className="text-center">
+      <div className="aspect-square overflow-hidden rounded-xl bg-muted">
+        <img src={img} alt={`${name} Chan, REALTOR®`} className="h-full w-full object-cover" />
+      </div>
+      <p className="mt-2 text-xs font-medium text-primary">{name} Chan</p>
+      <p className="text-[10px] uppercase tracking-wider text-muted-foreground">REALTOR®</p>
+    </div>
   );
 }
 
