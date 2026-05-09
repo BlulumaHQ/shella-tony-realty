@@ -89,7 +89,7 @@ function ListingDetail() {
               <div className="mt-10">
                 <h2 className="font-serif text-2xl text-primary">Key highlights</h2>
                 <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-                  {listing.highlights.map((h) => (
+                  {listing.highlights.map((h: string) => (
                     <li key={h} className="flex items-start gap-2.5 text-sm text-foreground/85">
                       <Check className="h-4 w-4 text-accent mt-0.5 shrink-0" /> {h}
                     </li>
