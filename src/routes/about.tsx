@@ -1,8 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SHELLA_HEADSHOT, TONY_HEADSHOT_PLACEHOLDER, SITE, TESTIMONIALS } from "@/data/site";
+import { SITE, TESTIMONIALS } from "@/data/site";
+import shellaImg from "@/assets/shella-portrait.webp";
+import tonyImg from "@/assets/tony-portrait.webp";
+import teamBanner from "@/assets/team-banner.webp";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { TestimonialsCarousel } from "@/components/site/TestimonialsCarousel";
 import { RemaxLogo } from "@/components/site/RemaxLogo";
+import { TeamPhones } from "@/components/site/TeamPhones";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
