@@ -210,21 +210,57 @@ export const TESTIMONIALS: Testimonial[] = [
 // Communities — using typography/icon cards. No images to avoid inaccurate or
 // AI-generated city photos. Real city photography can be added later.
 export const COMMUNITIES = [
-  { name: "Burnaby", desc: "Family neighbourhoods, top schools and lakeside parks." },
-  { name: "Richmond", desc: "Vibrant multicultural community with riverfront living." },
-  { name: "Vancouver", desc: "Iconic urban living surrounded by ocean and mountains." },
-  { name: "Coquitlam", desc: "Growing family suburbs with parks, transit and trails." },
-  { name: "New Westminster", desc: "Historic riverside community with character and warmth." },
-  { name: "Tri-Cities & Beyond", desc: "Trusted guidance across the Greater Vancouver area." },
+  {
+    name: { en: "Burnaby", zh: "本拿比" },
+    desc: { en: "Family neighbourhoods, top schools and lakeside parks.", zh: "適合家庭定居的社區，優質學校與湖畔公園。" },
+  },
+  {
+    name: { en: "Richmond", zh: "列治文" },
+    desc: { en: "Vibrant multicultural community with riverfront living.", zh: "多元文化社區，享有河岸宜居生活。" },
+  },
+  {
+    name: { en: "Vancouver", zh: "溫哥華" },
+    desc: { en: "Iconic urban living surrounded by ocean and mountains.", zh: "山海環抱的經典都會生活。" },
+  },
+  {
+    name: { en: "Coquitlam", zh: "高貴林" },
+    desc: { en: "Growing family suburbs with parks, transit and trails.", zh: "成長中的家庭郊區,公園、捷運與步道一應俱全。" },
+  },
+  {
+    name: { en: "New Westminster", zh: "新西敏" },
+    desc: { en: "Historic riverside community with character and warmth.", zh: "充滿人文溫度的歷史河畔社區。" },
+  },
+  {
+    name: { en: "Tri-Cities & Beyond", zh: "三聯市與周邊" },
+    desc: { en: "Trusted guidance across the Greater Vancouver area.", zh: "於大溫哥華地區為您提供值得信賴的服務。" },
+  },
 ];
 
 export const SERVICES = [
-  { title: "Buying", desc: "From first-time buyers to growing families — calm, step-by-step guidance to the right home." },
-  { title: "Selling", desc: "Strategic pricing, careful preparation and trusted marketing to maximize your outcome." },
-  { title: "Downsizing", desc: "Thoughtful support for families planning the next chapter, with no pressure or rush." },
-  { title: "Investment", desc: "Local market insight to help you build a portfolio that aligns with your goals." },
-  { title: "Relocation", desc: "Out-of-town and international clients — we handle the details so you can settle in." },
-  { title: "Seniors Transition", desc: "Patient, respectful service for seniors and their families through every step." },
+  {
+    title: { en: "Buying", zh: "購屋協助" },
+    desc: { en: "From first-time buyers to growing families — calm, step-by-step guidance to the right home.", zh: "從首購族到成長中的家庭,以沉穩、按部就班的方式陪您找到合適的家。" },
+  },
+  {
+    title: { en: "Selling", zh: "房屋銷售" },
+    desc: { en: "Strategic pricing, careful preparation and trusted marketing to maximize your outcome.", zh: "策略性定價、細緻準備與專業行銷,為您爭取最佳成交結果。" },
+  },
+  {
+    title: { en: "Downsizing", zh: "換屋換小" },
+    desc: { en: "Thoughtful support for families planning the next chapter, with no pressure or rush.", zh: "為規劃人生下一階段的家庭提供貼心協助,絕不施壓、不催促。" },
+  },
+  {
+    title: { en: "Investment", zh: "投資置產" },
+    desc: { en: "Local market insight to help you build a portfolio that aligns with your goals.", zh: "以在地市場洞察協助您建立符合目標的不動產組合。" },
+  },
+  {
+    title: { en: "Relocation", zh: "海外搬遷" },
+    desc: { en: "Out-of-town and international clients — we handle the details so you can settle in.", zh: "外地與海外客戶皆可放心,大小細節由我們打理,您只需安心入住。" },
+  },
+  {
+    title: { en: "Seniors Transition", zh: "長者安居" },
+    desc: { en: "Patient, respectful service for seniors and their families through every step.", zh: "以耐心與尊重,陪伴長輩與家人走過每一步。" },
+  },
 ];
 
 // Portraits and brand assets are imported as ES6 modules in components for

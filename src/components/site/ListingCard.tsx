@@ -2,9 +2,11 @@ import { Link } from "@tanstack/react-router";
 import type { Listing } from "@/data/site";
 import { Bed, Bath, Maximize2, ArrowRight } from "lucide-react";
 import { SoldRibbon } from "./SoldRibbon";
+import { useT } from "@/i18n/i18n";
 
 export function ListingCard({ listing }: { listing: Listing }) {
   const isSold = listing.status === "sold";
+  const t = useT();
   return (
     <Link
       to="/listings/$slug"
@@ -35,9 +37,9 @@ export function ListingCard({ listing }: { listing: Listing }) {
         </div>
         <div className="mt-5 pt-5 border-t border-border/60 flex items-center justify-between text-sm text-muted-foreground">
           <div className="flex items-center gap-4">
-            <span className="inline-flex items-center gap-1.5"><Bed className="h-4 w-4" />{listing.beds} bd</span>
-            <span className="inline-flex items-center gap-1.5"><Bath className="h-4 w-4" />{listing.baths} ba</span>
-            <span className="inline-flex items-center gap-1.5"><Maximize2 className="h-4 w-4" />{listing.sqft.toLocaleString()} sf</span>
+            <span className="inline-flex items-center gap-1.5"><Bed className="h-4 w-4" />{listing.beds} {t({ en: "bd", zh: "房" })}</span>
+            <span className="inline-flex items-center gap-1.5"><Bath className="h-4 w-4" />{listing.baths} {t({ en: "ba", zh: "衛" })}</span>
+            <span className="inline-flex items-center gap-1.5"><Maximize2 className="h-4 w-4" />{listing.sqft.toLocaleString()} {t({ en: "sf", zh: "呎" })}</span>
           </div>
           <ArrowRight className="h-4 w-4 text-accent opacity-0 group-hover:opacity-100 transition-opacity" />
         </div>

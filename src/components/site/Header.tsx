@@ -4,18 +4,22 @@ import { Menu, X, Phone } from "lucide-react";
 import { AGENTS } from "@/data/site";
 import { RemaxLogo } from "./RemaxLogo";
 import { TeamPhones } from "./TeamPhones";
-
-const NAV = [
-  { to: "/", label: "Home" },
-  { to: "/listings", label: "Listings" },
-  { to: "/sold", label: "Sold" },
-  { to: "/communities", label: "Communities" },
-  { to: "/about", label: "About" },
-  { to: "/contact", label: "Contact" },
-] as const;
+import { LanguageSwitcher, useT } from "@/i18n/i18n";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const t = useT();
+
+  const NAV = [
+    { to: "/", label: t({ en: "Home", zh: "首頁" }) },
+    { to: "/listings", label: t({ en: "Listings", zh: "出售物件" }) },
+    { to: "/sold", label: t({ en: "Sold", zh: "成交紀錄" }) },
+    { to: "/communities", label: t({ en: "Communities", zh: "服務區域" }) },
+    { to: "/about", label: t({ en: "About", zh: "關於我們" }) },
+    { to: "/contact", label: t({ en: "Contact", zh: "聯絡我們" }) },
+  ] as const;
+
+  const bookLabel = t({ en: "Book a Consultation", zh: "預約諮詢" });
 
   return (
     <header className="sticky top-0 z-40 backdrop-blur bg-background/85 border-b border-border/60">
@@ -25,7 +29,9 @@ export function Header() {
           <span className="hidden sm:flex h-9 w-px bg-border mx-1" />
           <div className="flex flex-col">
             <span className="font-serif text-base md:text-lg text-primary leading-tight">Shella &amp; Tony Chan</span>
-            <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Real Estate Team</span>
+            <span className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+              {t({ en: "Real Estate Team", zh: "不動產團隊" })}
+            </span>
           </div>
         </Link>
 
@@ -50,17 +56,21 @@ export function Header() {
             to="/contact"
             className="inline-flex items-center justify-center rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm font-medium hover:bg-primary/90 transition-colors"
           >
-            Book a Consultation
+            {bookLabel}
           </Link>
+          <LanguageSwitcher />
         </div>
 
-        <button
-          className="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-md text-primary"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
-        >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <LanguageSwitcher />
+          <button
+            className="inline-flex items-center justify-center w-10 h-10 rounded-md text-primary"
+            onClick={() => setOpen((v) => !v)}
+            aria-label="Toggle menu"
+          >
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {open && (
@@ -95,7 +105,7 @@ export function Header() {
               onClick={() => setOpen(false)}
               className="mt-3 inline-flex items-center justify-center rounded-full bg-primary text-primary-foreground px-5 py-3 text-sm font-medium"
             >
-              Book a Consultation
+              {bookLabel}
             </Link>
           </div>
         </div>
@@ -103,4 +113,3 @@ export function Header() {
     </header>
   );
 }
-
