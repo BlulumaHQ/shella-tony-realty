@@ -108,9 +108,9 @@ function AboutPage() {
               <p>
                 Together, Shella and Tony bring a balanced, family-led approach — pairing detailed market knowledge with the personal attention every client deserves.
               </p>
-              <p className="text-xs text-muted-foreground/80 italic">
-                A professional headshot of Tony will be added soon.
-              </p>
+              <div className="pt-2">
+                <TeamPhones variant="cards" />
+              </div>
             </div>
           </div>
         </div>
