@@ -1,13 +1,31 @@
+export const AGENTS = {
+  shella: {
+    name: "Shella Chan",
+    role: "REALTOR®",
+    phone: "604-367-9333",
+    tel: "+16043679333",
+  },
+  tony: {
+    name: "Tony Chan",
+    role: "REALTOR®",
+    phone: "604-338-3003",
+    tel: "+16043383003",
+  },
+} as const;
+
 export const SITE = {
   name: "Shella & Tony Chan Real Estate Team",
   short: "Chan Real Estate Team",
   brokerage: "RE/MAX Crest Realty",
-  phone: "604-433-2211",
-  phoneAlt: "604-649-8888",
-  tollFree: "1-866-433-2211",
+  // Primary phones now belong to Shella and Tony individually (see AGENTS).
+  // These remain for any legacy references.
+  phone: AGENTS.shella.phone,
+  phoneAlt: AGENTS.tony.phone,
+  tollFree: "",
   address: "#1 - 5050 Kingsway, Burnaby, BC V5H 4C2",
   email: "info@chanrealestate.com",
-  area: "Greater Vancouver",
+  website: "www.ChanRealEstate.com",
+  area: "Metro Vancouver",
   languages: ["English", "Cantonese", "Mandarin"],
   rating: { score: 4.92, count: 23 },
 };
@@ -209,18 +227,12 @@ export const SERVICES = [
   { title: "Seniors Transition", desc: "Patient, respectful service for seniors and their families through every step." },
 ];
 
-export const SHELLA_HEADSHOT =
-  "https://assets.rew.ca/property-agent/image/111169/2549_Shella_Chan.jpg?auto=format&fit=crop&w=600&h=600";
-
-// TEMPORARY — placeholder initials avatar for Tony. Replace with real headshot
-// from the Chan team when available. This is intentionally NOT a generated face.
-// Inline SVG data URI — guarantees the placeholder always renders, no CDN dep.
-export const TONY_HEADSHOT_PLACEHOLDER =
-  "data:image/svg+xml;utf8," +
-  encodeURIComponent(
-    `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600"><rect width="600" height="600" fill="#003DA5"/><text x="50%" y="54%" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="700" font-size="240" fill="#ffffff">TC</text></svg>`
-  );
-export const TONY_HEADSHOT_IS_PLACEHOLDER = true;
+// Portraits and brand assets are imported as ES6 modules in components for
+// proper bundling. These string exports remain for backwards compatibility
+// only and are no longer used directly by the UI.
+export const SHELLA_HEADSHOT = "";
+export const TONY_HEADSHOT_PLACEHOLDER = "";
+export const TONY_HEADSHOT_IS_PLACEHOLDER = false;
 
 export function findListing(slug: string): Listing | undefined {
   return [...FEATURED_LISTINGS, ...SOLD_LISTINGS].find((l) => l.slug === slug);

@@ -1,9 +1,11 @@
 import { Link } from "@tanstack/react-router";
-import { SITE } from "@/data/site";
+import { SITE, AGENTS } from "@/data/site";
 import { RemaxLogo } from "./RemaxLogo";
+import { Phone } from "lucide-react";
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const agents = [AGENTS.shella, AGENTS.tony];
   return (
     <footer className="mt-24 border-t border-border/60 bg-secondary/50">
       <div className="container-app py-16 grid gap-12 md:grid-cols-4">
@@ -11,10 +13,10 @@ export function Footer() {
           <p className="font-serif text-2xl text-primary">Shella &amp; Tony Chan</p>
           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground mt-1">Real Estate Team</p>
           <p className="mt-5 text-sm text-muted-foreground max-w-sm leading-relaxed">
-            Trusted family real estate guidance across the Greater Vancouver area. Serving you in English, Cantonese and Mandarin.
+            Trusted family real estate guidance across Metro Vancouver. Serving you in English, Cantonese and Mandarin.
           </p>
           <div className="mt-6">
-            <RemaxLogo />
+            <RemaxLogo variant="full" className="h-9" />
           </div>
         </div>
         <div>
@@ -29,10 +31,21 @@ export function Footer() {
         </div>
         <div>
           <p className="text-sm font-medium text-foreground mb-4">Contact</p>
-          <ul className="space-y-2.5 text-sm text-muted-foreground">
-            <li><a href={`tel:${SITE.phone}`} className="hover:text-accent">{SITE.phone}</a></li>
-            <li><a href={`tel:${SITE.tollFree}`} className="hover:text-accent">Toll-free {SITE.tollFree}</a></li>
-            <li className="leading-relaxed">{SITE.brokerage}<br/>{SITE.address}</li>
+          <ul className="space-y-3 text-sm text-muted-foreground">
+            {agents.map((a) => (
+              <li key={a.tel}>
+                <a href={`tel:${a.tel}`} className="group inline-flex items-start gap-2 hover:text-accent">
+                  <Phone className="h-4 w-4 mt-0.5 text-accent" />
+                  <span>
+                    <span className="block text-[11px] uppercase tracking-[0.16em] text-muted-foreground/80">
+                      {a.name}
+                    </span>
+                    <span className="block font-medium text-foreground group-hover:text-accent">{a.phone}</span>
+                  </span>
+                </a>
+              </li>
+            ))}
+            <li className="leading-relaxed pt-2">{SITE.brokerage}<br/>{SITE.address}</li>
           </ul>
         </div>
       </div>

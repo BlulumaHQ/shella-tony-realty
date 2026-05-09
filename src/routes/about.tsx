@@ -1,8 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SHELLA_HEADSHOT, TONY_HEADSHOT_PLACEHOLDER, SITE, TESTIMONIALS } from "@/data/site";
+import { SITE, TESTIMONIALS } from "@/data/site";
+import shellaImg from "@/assets/shella-portrait.webp";
+import tonyImg from "@/assets/tony-portrait.webp";
+import teamBanner from "@/assets/team-banner.webp";
 import { SectionHeading } from "@/components/site/SectionHeading";
 import { TestimonialsCarousel } from "@/components/site/TestimonialsCarousel";
 import { RemaxLogo } from "@/components/site/RemaxLogo";
+import { TeamPhones } from "@/components/site/TeamPhones";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -17,23 +21,37 @@ export const Route = createFileRoute("/about")({
 function AboutPage() {
   return (
     <>
+      {/* Team banner */}
+      <section className="bg-primary">
+        <div className="container-app py-6 md:py-8">
+          <div className="rounded-2xl overflow-hidden ring-1 ring-primary-foreground/10 shadow-card">
+            <img
+              src={teamBanner}
+              alt="Shella & Tony Chan — Helping local & international families buy & sell real estate in Metro Vancouver"
+              className="w-full h-auto block"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Section 1 — About the team */}
       <section className="py-20 md:py-28">
         <div className="container-app grid gap-12 lg:gap-20 lg:grid-cols-2 items-center">
           <div className="grid grid-cols-2 gap-5 max-w-md mx-auto lg:mx-0">
             <div>
               <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-muted shadow-card">
-                <img src={SHELLA_HEADSHOT} alt="Shella Chan, REALTOR®" className="h-full w-full object-cover" />
+                <img src={shellaImg} alt="Shella Chan, REALTOR®" className="h-full w-full object-cover" />
               </div>
               <p className="mt-3 font-serif text-lg text-primary">Shella Chan</p>
               <p className="text-xs text-muted-foreground">REALTOR®</p>
             </div>
             <div>
               <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-muted shadow-card">
-                <img src={TONY_HEADSHOT_PLACEHOLDER} alt="Tony Chan, REALTOR®" className="h-full w-full object-cover" />
+                <img src={tonyImg} alt="Tony Chan, REALTOR®" className="h-full w-full object-cover" />
               </div>
               <p className="mt-3 font-serif text-lg text-primary">Tony Chan</p>
-              <p className="text-xs text-muted-foreground">REALTOR® • photo coming soon</p>
+              <p className="text-xs text-muted-foreground">REALTOR®</p>
             </div>
           </div>
           <div>
@@ -71,7 +89,7 @@ function AboutPage() {
       <section className="py-16 md:py-20 bg-secondary/50 border-y border-border/60">
         <div className="container-app grid gap-10 md:grid-cols-[260px_1fr] items-start">
           <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-muted shadow-card max-w-[260px]">
-            <img src={SHELLA_HEADSHOT} alt="Shella Chan" className="h-full w-full object-cover" />
+            <img src={shellaImg} alt="Shella Chan" className="h-full w-full object-cover" />
           </div>
           <div>
             <p className="text-xs uppercase tracking-[0.22em] text-accent font-medium">About Shella Chan</p>
@@ -92,7 +110,7 @@ function AboutPage() {
       <section className="py-16 md:py-20">
         <div className="container-app grid gap-10 md:grid-cols-[260px_1fr] items-start">
           <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-muted shadow-card max-w-[260px]">
-            <img src={TONY_HEADSHOT_PLACEHOLDER} alt="Tony Chan" className="h-full w-full object-cover" />
+            <img src={tonyImg} alt="Tony Chan" className="h-full w-full object-cover" />
           </div>
           <div>
             <p className="text-xs uppercase tracking-[0.22em] text-accent font-medium">About Tony Chan</p>
@@ -104,9 +122,9 @@ function AboutPage() {
               <p>
                 Together, Shella and Tony bring a balanced, family-led approach — pairing detailed market knowledge with the personal attention every client deserves.
               </p>
-              <p className="text-xs text-muted-foreground/80 italic">
-                A professional headshot of Tony will be added soon.
-              </p>
+              <div className="pt-2">
+                <TeamPhones variant="cards" />
+              </div>
             </div>
           </div>
         </div>

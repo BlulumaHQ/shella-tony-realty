@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import type { Listing } from "@/data/site";
 import { Bed, Bath, Maximize2, ArrowRight } from "lucide-react";
+import { SoldRibbon } from "./SoldRibbon";
 
 export function ListingCard({ listing }: { listing: Listing }) {
   const isSold = listing.status === "sold";
@@ -8,20 +9,16 @@ export function ListingCard({ listing }: { listing: Listing }) {
     <Link
       to="/listings/$slug"
       params={{ slug: listing.slug }}
-      className="group block bg-card rounded-2xl overflow-hidden shadow-soft hover:shadow-card transition-shadow border border-border/60"
+      className="group block bg-card rounded-2xl overflow-hidden shadow-soft hover:shadow-card hover:-translate-y-0.5 transition-all border border-border/60 hover:border-accent/40"
     >
       <div className="relative aspect-[4/3] overflow-hidden bg-muted">
         <img
           src={listing.images[0]}
           alt={`${listing.address}, ${listing.city}`}
           loading="lazy"
-          className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700"
+          className={`h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 ${isSold ? "grayscale-[35%] group-hover:grayscale-0" : ""}`}
         />
-        {isSold && (
-          <span className="absolute top-4 left-4 text-[11px] uppercase tracking-wider px-2.5 py-1 rounded-full bg-brand-red text-white font-medium">
-            Sold
-          </span>
-        )}
+        {isSold && <SoldRibbon />}
       </div>
       <div className="p-6">
         <div className="flex items-start justify-between gap-4">
