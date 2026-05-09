@@ -54,15 +54,23 @@ function HomePage() {
 function Awards() {
   return (
     <section className="bg-primary">
-      <div className="container-app py-10 md:py-12">
+      <div className="container-app py-10 md:py-14">
         <p className="text-center text-[11px] uppercase tracking-[0.28em] text-primary-foreground/70 font-medium">
           Awards &amp; Recognition
         </p>
-        <div className="mt-5 flex justify-center">
+        <div
+          className="mt-5 flex justify-center"
+          style={{
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
+            maskImage:
+              "linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%)",
+          }}
+        >
           <img
             src={awardsStrip}
             alt="RE/MAX Platinum Club Award • RE/MAX Lifetime Achievement • Medallion Club Member • RE/MAX Hall of Fame • RE/MAX Chairman's Club"
-            className="w-full max-w-4xl h-auto object-contain"
+            className="w-full max-w-5xl h-auto object-contain opacity-90"
             loading="lazy"
           />
         </div>
@@ -87,7 +95,6 @@ function Hero() {
       <div className="relative container-app py-20 md:py-28 lg:py-32 text-primary-foreground grid lg:grid-cols-[1.15fr_auto] gap-12 lg:gap-16 items-center">
         <div>
           <div className="inline-flex items-center gap-3 rounded-full bg-primary-foreground/10 backdrop-blur border border-primary-foreground/20 px-4 py-1.5">
-            <RemaxLogo variant="balloon" className="h-5" />
             <span className="text-[11px] uppercase tracking-[0.22em] text-primary-foreground/85 font-medium">
               RE/MAX Crest Realty • Metro Vancouver
             </span>

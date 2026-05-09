@@ -16,7 +16,7 @@ export function Footer() {
             Trusted family real estate guidance across Metro Vancouver. Serving you in English, Cantonese and Mandarin.
           </p>
           <div className="mt-6">
-            <RemaxLogo variant="full" className="h-9" />
+            <RemaxLogo variant="wordmark" className="h-10" />
           </div>
         </div>
         <div>
