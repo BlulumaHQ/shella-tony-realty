@@ -43,8 +43,9 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-6">
           <TeamPhones variant="inline" />
+          <span className="h-9 w-px bg-border" />
           <Link
             to="/contact"
             className="inline-flex items-center justify-center rounded-full bg-primary text-primary-foreground px-5 py-2.5 text-sm font-medium hover:bg-primary/90 transition-colors"

@@ -1,20 +1,22 @@
 import balloon from "@/assets/remax-balloon.png";
-import wordmark from "@/assets/remax-real-estate-services.png";
+import wordmark from "@/assets/remax-wordmark.png";
+import lockup from "@/assets/remax-real-estate-services.png";
 
 /**
- * Official RE/MAX brand mark — uses the team's uploaded assets.
+ * Official RE/MAX brand mark — uses uploaded transparent PNG assets.
  *
- * variant="balloon"  – just the balloon, ideal for tight header / inline use
- * variant="full"     – full RE/MAX Real Estate Services lockup (default)
+ * variant="balloon"   – just the balloon
+ * variant="wordmark"  – RE/MAX wordmark only
+ * variant="lockup"    – balloon + RE/MAX wordmark (default)
  * variant="brokerage" – balloon + "RE/MAX Crest Realty" wordmark
  */
 export function RemaxLogo({
   className = "",
-  variant = "full",
+  variant = "lockup",
   showText,
 }: {
   className?: string;
-  variant?: "balloon" | "full" | "brokerage";
+  variant?: "balloon" | "wordmark" | "lockup" | "brokerage" | "full";
   /** legacy — when explicitly false, hide brokerage label on the brokerage variant */
   showText?: boolean;
 }) {
@@ -24,6 +26,17 @@ export function RemaxLogo({
         src={balloon}
         alt="RE/MAX"
         className={`h-10 w-auto object-contain ${className}`}
+        loading="lazy"
+      />
+    );
+  }
+
+  if (variant === "wordmark") {
+    return (
+      <img
+        src={wordmark}
+        alt="RE/MAX"
+        className={`h-7 w-auto object-contain ${className}`}
         loading="lazy"
       />
     );
@@ -45,10 +58,11 @@ export function RemaxLogo({
     );
   }
 
+  // "lockup" / "full" — balloon + wordmark
   return (
     <img
-      src={wordmark}
-      alt="RE/MAX Real Estate Services"
+      src={lockup}
+      alt="RE/MAX"
       className={`h-10 w-auto object-contain ${className}`}
       loading="lazy"
     />
