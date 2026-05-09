@@ -247,8 +247,8 @@ function MeetTeam() {
     <section className="py-20 md:py-28 bg-secondary/50">
       <div className="container-app grid gap-12 lg:gap-16 lg:grid-cols-2 items-center">
         <div className="grid grid-cols-2 gap-5 max-w-md mx-auto lg:mx-0">
-          <AgentPortrait name="Shella Chan" role="REALTOR®" img={SHELLA_HEADSHOT} />
-          <AgentPortrait name="Tony Chan" role="REALTOR®" img={TONY_HEADSHOT_PLACEHOLDER} placeholder />
+          <AgentPortrait name="Shella Chan" role="REALTOR®" img={shellaImg} />
+          <AgentPortrait name="Tony Chan" role="REALTOR®" img={tonyImg} />
         </div>
         <div>
           <p className="text-xs uppercase tracking-[0.22em] text-accent font-medium">Meet Shella &amp; Tony</p>
@@ -277,16 +277,14 @@ function MeetTeam() {
   );
 }
 
-function AgentPortrait({ name, role, img, placeholder }: { name: string; role: string; img: string; placeholder?: boolean }) {
+function AgentPortrait({ name, role, img }: { name: string; role: string; img: string }) {
   return (
     <div>
       <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-muted shadow-card">
         <img src={img} alt={`${name}, ${role}`} loading="lazy" className="h-full w-full object-cover" />
       </div>
       <p className="mt-3 font-serif text-lg text-primary">{name}</p>
-      <p className="text-xs text-muted-foreground">
-        {role}{placeholder ? " • photo coming soon" : ""}
-      </p>
+      <p className="text-xs text-muted-foreground">{role}</p>
     </div>
   );
 }
@@ -339,27 +337,31 @@ function SellerCTA() {
 function ContactStrip() {
   return (
     <section className="py-16 border-t border-border/60">
-      <div className="container-app grid gap-8 md:grid-cols-3 text-sm">
-        <div className="flex items-start gap-3">
-          <Phone className="h-5 w-5 text-accent mt-0.5" />
-          <div>
-            <p className="font-medium text-primary">Call</p>
-            <a href={`tel:${SITE.phone}`} className="text-muted-foreground hover:text-accent">{SITE.phone}</a>
-            <p className="text-xs text-muted-foreground mt-1">Toll-free {SITE.tollFree}</p>
+      <div className="container-app grid gap-10 lg:grid-cols-[1.4fr_1fr] items-start">
+        <div>
+          <p className="text-xs uppercase tracking-[0.22em] text-accent font-medium">Direct lines</p>
+          <h3 className="mt-2 font-serif text-2xl md:text-3xl text-primary">Talk to Shella or Tony directly.</h3>
+          <p className="mt-3 text-sm text-muted-foreground max-w-md leading-relaxed">
+            Each of us answers our own line — no call centres, no gatekeepers. Reach the agent you'd like to speak with.
+          </p>
+          <div className="mt-6">
+            <TeamPhones variant="cards" />
           </div>
         </div>
-        <div className="flex items-start gap-3">
-          <Mail className="h-5 w-5 text-accent mt-0.5" />
-          <div>
-            <p className="font-medium text-primary">Email</p>
-            <p className="text-muted-foreground">Reach us anytime — we’ll respond promptly.</p>
+        <div className="grid gap-5 text-sm">
+          <div className="flex items-start gap-3">
+            <Mail className="h-5 w-5 text-accent mt-0.5" />
+            <div>
+              <p className="font-medium text-primary">Email</p>
+              <p className="text-muted-foreground">{SITE.email}</p>
+            </div>
           </div>
-        </div>
-        <div className="flex items-start gap-3">
-          <MapPin className="h-5 w-5 text-accent mt-0.5" />
-          <div>
-            <p className="font-medium text-primary">Office</p>
-            <p className="text-muted-foreground leading-relaxed">{SITE.brokerage}<br/>{SITE.address}</p>
+          <div className="flex items-start gap-3">
+            <MapPin className="h-5 w-5 text-accent mt-0.5" />
+            <div>
+              <p className="font-medium text-primary">Office</p>
+              <p className="text-muted-foreground leading-relaxed">{SITE.brokerage}<br/>{SITE.address}</p>
+            </div>
           </div>
         </div>
       </div>
