@@ -6,11 +6,18 @@
 // You can pass additional config via defineConfig({ vite: { ... } }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-// Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
+// Redirect TanStack Start's bundled server entry through src/index.ts (our SSR error wrapper).
 // @cloudflare/vite-plugin builds from this — wrangler.jsonc main alone is insufficient.
 export default defineConfig({
   tanstackStart: {
-    server: { entry: "server" },
-    spa: { enabled: true },
+    server: { entry: "index" },
+    spa: { enabled: true, prerender: { outputPath: "/index" } },
+  },
+  vite: {
+    environments: {
+      client: {
+        build: { outDir: "dist" },
+      },
+    },
   },
 });
