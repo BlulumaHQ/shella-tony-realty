@@ -11,7 +11,7 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 export default defineConfig({
   tanstackStart: {
     server: { entry: "index" },
-    spa: { enabled: true },
+    spa: { enabled: true, prerender: { outputPath: "/index" } },
   },
   vite: {
     environments: {
